@@ -2,6 +2,6 @@ from django.shortcuts import render
 from django.http import HttpResponse
 
 def home(request):
-    return HttpResponse('<h1>Checkout</h1>')
+    return render(request, 'checkout/checkout_home.html')
 
-# Create your views here.
+
