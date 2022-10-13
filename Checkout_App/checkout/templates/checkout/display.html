@@ -1,0 +1,24 @@
+{% extends "checkout/base.html" %}
+
+{% block title %}View Recipts{% endblock %}
+
+{% block content %}
+    <h1>{{ls.text}}</h1>
+    <ul>
+        {% for item in ls.items.all %}
+        
+            <li>{{item.name}}: {{item.price}}</li>
+        {% endfor %}
+    </ul> 
+    Discounts:
+    <ul>
+        {% for discount in ls.discount.all %}
+            <li>{{discount.discount}}%</li>
+        {% empty %} 
+            <li>0.00%</li>
+        {% endfor %}
+    </ul>
+    SubTotal = {{subtotal}} 
+    </br>
+    Total with Discount = {{disctotal}}
+{% endblock %}
