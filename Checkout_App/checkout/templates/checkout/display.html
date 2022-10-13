@@ -18,21 +18,25 @@
             <li>0.00%</li>
         {% endfor %}
     </ul>
-    SubTotal = {{subtotal}} 
+    SubTotal = ${{subtotal}} 
     </br>
-    Total with Discount = {{disctotal}}
+    Total with Discount = ${{disctotal}}
+    </br>
+    tax = ${{tax}}
+    </br>
+    Total = ${{total}}
 
     <h3>Add New Item</h3>
     <form method="POST">
         {% csrf_token %}
-        {{Itemform.as_p}}
+        {{form1.as_p}}
         <button type="submit", name="saveItem", value="saveItem">Add New Item</button>
     </form>
 
     <h3>Add Discount</h3>
     <form method="POST">
         {% csrf_token %}
-        {{Discform.as_p}}
+        {{form2.as_p}}
         <button type="submit", name="saveDiscount", value="saveDiscount">Add Discount</button>
     </form>
 

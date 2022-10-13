@@ -1,3 +1,4 @@
+from django.forms import DecimalField
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
 from django.urls import is_valid_path
@@ -35,7 +36,9 @@ def index(response, id):
                 ls.discount.add(newDisc)
     
     # Else, if no form is selected continue as always 
-    return render(response, "checkout/display.html", {"ls":ls, "subtotal":ls.subtotal, "disctotal":ls.discount_total, "Itemform":newItemform, "DiscForm": newDiscform})
+    tax = round(float(ls.discount_total) * 0.13, 2)
+    total = float(ls.discount_total) + tax
+    return render(response, "checkout/display.html", {"ls":ls, "subtotal":ls.subtotal, "disctotal":ls.discount_total, "tax":tax, "total":total, "form1":newItemform, "form2": newDiscform})
     
 # view config for home 
 def home(request):
