@@ -5,7 +5,7 @@ from django.db.models import Sum
 
 # Class for Item instances
 class item(models.Model):
-    name = models.CharField(max_length=50)
+    name = models.CharField(max_length=200)
     price = models.DecimalField(max_digits=10,decimal_places=2)
 
     def __str__(self):

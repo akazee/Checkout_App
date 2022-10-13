@@ -1,0 +1,14 @@
+{% extends 'checkout/base.html' %}
+
+{% block title %} Create new Order {% endblock %}
+
+{% block content %}
+
+<h2>Create new Order</h2>
+    <form method="post" action="/create/">
+        {% csrf_token %}
+        {{form.as_p}}
+        <button type="submit", name="save">Create New Order</button>
+    </form>
+
+{% endblock %}

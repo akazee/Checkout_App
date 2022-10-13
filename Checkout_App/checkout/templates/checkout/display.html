@@ -7,13 +7,13 @@
     <ul>
         {% for item in ls.items.all %}
         
-            <li>{{item.name}}: {{item.price}}</li>
+            <li>ID {{item.id}} - {{item.name}}: ${{item.price}}</li>
         {% endfor %}
     </ul> 
     Discounts:
     <ul>
         {% for discount in ls.discount.all %}
-            <li>{{discount.discount}}%</li>
+            <li>ID {{discount.id}} - {{discount.discount}}%</li>
         {% empty %} 
             <li>0.00%</li>
         {% endfor %}
@@ -21,4 +21,20 @@
     SubTotal = {{subtotal}} 
     </br>
     Total with Discount = {{disctotal}}
+
+    <h3>Add New Item</h3>
+    <form method="POST">
+        {% csrf_token %}
+        {{Itemform.as_p}}
+        <button type="submit", name="saveItem", value="saveItem">Add New Item</button>
+    </form>
+
+    <h3>Add Discount</h3>
+    <form method="POST">
+        {% csrf_token %}
+        {{Discform.as_p}}
+        <button type="submit", name="saveDiscount", value="saveDiscount">Add Discount</button>
+    </form>
+
+
 {% endblock %}
