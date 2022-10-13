@@ -8,7 +8,21 @@
     <form method="post" action="/create/">
         {% csrf_token %}
         {{form.as_p}}
-        <button type="submit", name="save">Create New Order</button>
+        <button type="submit", name="save", value="save">Create New Order</button>
     </form>
 
+<h2>Load Previous Order</h2>
+<em>All possible valid order IDs are listed below</em>
+    <form method="post" action="/create/">
+        {% csrf_token %}
+        {{oldform.as_p}}
+        <button type="submit", name="Load", value="Load">Load Order</button>
+    </form>
+
+<h3>Previous Orders</h3>
+    <ul>
+        {% for recipt in recipts %}
+            <li>ID {{recipt.id}} - {{recipt.text}}</li>
+        {% endfor %}
+    </ul>
 {% endblock %}

@@ -50,10 +50,19 @@ class recipt(models.Model):
     # Check to see if this recipt holds the item, given by id
     def hasItem(self, itemId):
         return any(x.id == itemId for x in self.items.all())
-    
+
     # Removes the item with itemID from this recipts list of items
     def removeItem(self, itemID):
         any(self.items.remove(x) for x in self.items.all() if x.id == itemID)
+        pass 
+    
+    # Check to see if this recipt holds the discount given by discID
+    def hasDiscount(self, discID):
+        return any(x.id == discID for x in self.discount.all())
+    
+    # Removes the discount with discID from this recipts list of discounts
+    def removeDiscount(self, discID):
+        any(self.discount.remove(x) for x in self.discount.all() if x.id == discID)
         pass 
 
     # returns a string that lists out all of the items and discounts in this list, 
