@@ -1,0 +1,64 @@
+{% extends "checkout/base.html" %}
+
+{% block title %}View Recipts{% endblock %}
+
+{% block content %}
+    <h1>{{ls.text}}</h1>
+    <h3>Items</h3>
+    <ul>
+        {% for item in ls.items.all %}
+        
+            <li>ID {{item.id}} - {{item.name}}: ${{item.price}}</li>
+        {% endfor %}
+    </ul> 
+    <h3>Discounts</h3>
+    <ul>
+        {% for discount in ls.discount.all %}
+            <li>ID {{discount.id}} - {{discount.discount}}%</li>
+        {% empty %} 
+            <li>0.00%</li>
+        {% endfor %}
+    </ul>
+    SubTotal = ${{subtotal}} 
+    </br>
+    Total with Discount = ${{disctotal}}
+    </br>
+    tax = ${{tax}}
+    </br>
+    Total = ${{total}}
+
+    <h2>Item Operations</h2>
+    <h4>Add New Item</h4>
+    <form method="POST">
+        {% csrf_token %}
+        {{form1.as_p}}
+        <button type="submit", name="saveItem", value="saveItem">Add New Item</button>
+    </form>
+
+    <h4>Remove Item</h4>
+    <form method="POST">
+        {% csrf_token %}
+        {{form3.as_p}}
+        <button type="submit", name="delitem", value="delitem">Remove Item</button>
+    </form>
+
+    <h2>Discount Operations</h2>
+
+    <h4>Add Discount</h4>
+    <form method="POST">
+        {% csrf_token %}
+        {{form2.as_p}}
+        <button type="submit", name="saveDiscount", value="saveDiscount">Add Discount</button>
+    </form>
+
+    <h4>Remove Discount</h4>
+    <form method="POST">
+        {% csrf_token %}
+        {{form4.as_p}}
+        <button type="submit", name="deldisc", value="deldisc">Remove Discount</button>
+    </form>
+
+    </br>
+    <button><a href="/create">CHECKOUT ORDER</a></button>
+
+{% endblock %}
