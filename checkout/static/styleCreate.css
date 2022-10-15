@@ -1,31 +1,27 @@
 body {
     background-color: powderblue;
 }
-p {
-    color: red;
-}
+
 
 .card{
     text-align: center;
-    background-color: rgb(145, 205, 213);
+    background-color: salmon;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    border-radius: 25px;
     transition: 0.3s;
     height: 185px;
     padding-top: 10px;
     margin-left: 10px;
 }
-.card2{
-    align-content: right;
-    background-color: rgb(145, 205, 213);
+.card2{ 
+    background-color: salmon;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    border-radius: 25px;
     transition: 0.3s;
-    padding-top: 10px;
-    margin-left: 10px;
-    padding-bottom: 10px;
-}
-
-div{
-    text-align: right;
-    padding-right: 50px;
+    padding-top: 23px;
+    padding-left: 50px;
+    margin-left: 745px;
+    margin-right: 4px;
+    padding-bottom: 23px;
 }
 

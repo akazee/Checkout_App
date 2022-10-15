@@ -3,62 +3,78 @@
 {% block title %}View Recipts{% endblock %}
 
 {% block content %}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css">
+    {%load static%}
+    <link rel = "stylesheet" href="{% static 'styleDisplay.css'%}">
+
     <h1>{{ls.text}}</h1>
-    <h3>Items</h3>
-    <ul>
-        {% for item in ls.items.all %}
-        
-            <li>ID {{item.id}} - {{item.name}}: ${{item.price}}</li>
-        {% endfor %}
-    </ul> 
-    <h3>Discounts</h3>
-    <ul>
-        {% for discount in ls.discount.all %}
-            <li>ID {{discount.id}} - {{discount.discount}}%</li>
-        {% empty %} 
-            <li>0.00%</li>
-        {% endfor %}
-    </ul>
-    SubTotal = ${{subtotal}} 
-    </br>
-    Total with Discount = ${{disctotal}}
-    </br>
-    tax = ${{tax}}
-    </br>
-    Total = ${{total}}
+    <div class="row">
+        <div class="col">
+            <div class="card">
+                
+                <h3>Items</h3>
+                
+                    {% for item in ls.items.all %}
+                    
+                        <li>ID {{item.id}} - {{item.name}}: ${{item.price}}</li>
+                    {% endfor %}
+            </div>
+        </div>
+        <div class="col">
+            <div class="card">
+                <h3>Discounts</h3>
+                    {% for discount in ls.discount.all %}
+                        <li>ID {{discount.id}} - {{discount.discount}}%</li>
+                    {% empty %} 
+                        <li>0.00%</li>
+                    {% endfor %}
+                SubTotal = ${{subtotal}} 
+                </br>
+                Total with Discount = ${{disctotal}}
+                </br>
+                Tax = ${{tax}}
+                </br>
+                Total = ${{total}}
+            </div>
+        </div>
+    </div>
 
-    <h2>Item Operations</h2>
-    <h4>Add New Item</h4>
-    <form method="POST">
-        {% csrf_token %}
-        {{form1.as_p}}
-        <button type="submit", name="saveItem", value="saveItem">Add New Item</button>
-    </form>
+    <div class="card">
+        <h2>Item Operations</h2>
+        <h4>Add New Item</h4>
+        <form method="POST">
+            {% csrf_token %}
+            {{form1.as_p}}
+            <button type="submit", name="saveItem", value="saveItem">Add New Item</button>
+        </form>
 
-    <h4>Remove Item</h4>
-    <form method="POST">
-        {% csrf_token %}
-        {{form3.as_p}}
-        <button type="submit", name="delitem", value="delitem">Remove Item</button>
-    </form>
+        <h4>Remove Item</h4>
+        <form method="POST">
+            {% csrf_token %}
+            {{form3.as_p}}
+            <button type="submit", name="delitem", value="delitem">Remove Item</button>
+        </form>
+    </div>
+    <div class="card">
+        <h2>Discount Operations</h2>
 
-    <h2>Discount Operations</h2>
+        <h4>Add Discount</h4>
+        <form method="POST">
+            {% csrf_token %}
+            {{form2.as_p}}
+            <button type="submit", name="saveDiscount", value="saveDiscount">Add Discount</button>
+        </form>
 
-    <h4>Add Discount</h4>
-    <form method="POST">
-        {% csrf_token %}
-        {{form2.as_p}}
-        <button type="submit", name="saveDiscount", value="saveDiscount">Add Discount</button>
-    </form>
+        <h4>Remove Discount</h4>
+        <form method="POST">
+            {% csrf_token %}
+            {{form4.as_p}}
+            <button type="submit", name="deldisc", value="deldisc">Remove Discount</button>
+        </form>
 
-    <h4>Remove Discount</h4>
-    <form method="POST">
-        {% csrf_token %}
-        {{form4.as_p}}
-        <button type="submit", name="deldisc", value="deldisc">Remove Discount</button>
-    </form>
+        </br>
+        </div>
 
-    </br>
     <button><a href="/create">CHECKOUT ORDER</a></button>
-
+    
 {% endblock %}

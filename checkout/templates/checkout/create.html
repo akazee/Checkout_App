@@ -33,10 +33,9 @@
 <br>
 <div class="card2">
     <h3>Previous Orders</h3>
-        <ul>
             {% for recipt in recipts %}
                 <li>ID {{recipt.id}} - {{recipt.text}}</li>
             {% endfor %}
-        </ul>
+        
 </div>
 {% endblock %}
