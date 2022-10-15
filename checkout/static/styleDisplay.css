@@ -1,0 +1,25 @@
+h1{
+    text-align: center;
+}
+
+body {
+    background-color: powderblue;
+}
+
+.card{
+    text-align: center;
+    background-color: salmon;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    border-radius: 25px;
+    transition: 0.3s;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-left: 10px;
+    margin-bottom: 20px;
+}
+
+div{
+    text-align: right;
+    padding-right: 50px;
+}
+
