@@ -1,0 +1,27 @@
+body {
+    background-color: powderblue;
+}
+
+
+.card{
+    text-align: center;
+    background-color: salmon;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    border-radius: 25px;
+    transition: 0.3s;
+    height: 185px;
+    padding-top: 10px;
+    margin-left: 10px;
+}
+.card2{ 
+    background-color: salmon;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    border-radius: 25px;
+    transition: 0.3s;
+    padding-top: 23px;
+    padding-left: 50px;
+    margin-left: 745px;
+    margin-right: 4px;
+    padding-bottom: 23px;
+}
+
